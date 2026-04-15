@@ -49,10 +49,7 @@ export default function App() {
                     {isLoading && <Loader />}
                     {error && <ErrorMessage errorText={error} />}
                     {!isLoading && !error && (
-                        <MoviesList
-                            onSelectMovie={setSelectedMovieId}
-                            movies={movies}
-                        />
+                        <MoviesList onSelectMovie={setSelectedMovieId} movies={movies} />
                     )}
                 </Box>
                 <Box>
@@ -67,12 +64,8 @@ export default function App() {
                     )}
                     {!selectedMovieId && (
                         <>
-                            <WatchedMovieSummery
-                                watched={Object.values(watched)}
-                            />
-                            <WatchedMoviesList
-                                watched={Object.values(watched)}
-                            />
+                            <WatchedMovieSummery watched={Object.values(watched)} />
+                            <WatchedMoviesList watched={Object.values(watched)} />
                         </>
                     )}
                 </Box>
@@ -101,10 +94,7 @@ function Box({ children }) {
     const [isOpen, setIsOpen] = useState(true);
     return (
         <div className="box">
-            <button
-                className="btn-toggle"
-                onClick={() => setIsOpen((open) => !open)}
-            >
+            <button className="btn-toggle" onClick={() => setIsOpen((open) => !open)}>
                 {isOpen ? "–" : "+"}
             </button>
             {isOpen && children}
